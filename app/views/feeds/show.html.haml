@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @feed.title
+%p
+  %b Url:
+  = @feed.url
+%p
+  %b Feed url:
+  = @feed.feed_url
+
+%p
+  %b Category:
+  = @category.name
+
+= link_to 'Edit', edit_feed_path(@feed)
+\|
+= link_to 'Back', feeds_path
+
+= render :file => 'shared/entries'

@@ -1,0 +1,15 @@
+%h1 Listing feeds
+
+%table
+  %tr
+    %th Title
+    %th Url
+    %th Feed url
+    %th Category
+
+  - @feeds.each do |feed|
+    %tr
+      %td= link_to feed.title, feed
+      %td= feed.url
+      %td= feed.feed_url
+      %td= if feed.category then feed.category.name end

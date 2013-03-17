@@ -1,0 +1,14 @@
+%table
+  %tr
+    %th Link
+    %th Summary
+    %th Published At
+
+  - @entries.each do |entry|
+    %tr
+      %td
+        %a{:href => entry.url}= entry.title
+      %td= entry.summary
+      %td= entry.published_at
+
+%br
