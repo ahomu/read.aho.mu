@@ -183,6 +183,7 @@ DEPENDENCIES
   feedzirra
   haml-rails
   jquery-rails
+  kaminari
   newrelic_rpm
   pg
   rails (= 3.2.12)

@@ -35,6 +35,10 @@ gem 'activeadmin'
 
 gem 'newrelic_rpm'
 
+# To use kaminari for pagination
+# See http://memo.yomukaku.net/entries/238
+gem 'kaminari'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

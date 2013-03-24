@@ -11,4 +11,4 @@
       %td= entry.summary
       %td= entry.published_at
 
-%br
+= paginate @entries, :window => 2, :outer_window => 2
