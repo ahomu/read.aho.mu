@@ -22,7 +22,7 @@ class Tasks::FetchFeedTask
 
       # Take updated entries
       if latest_entry != nil
-        updatedEntries = parsedFeed.entries.take_while {|e| e.entry_id != latest_entry.url}
+        updatedEntries = parsedFeed.entries.take_while {|e| e.url != latest_entry.url}
       else
         updatedEntries = parsedFeed.entries
       end
