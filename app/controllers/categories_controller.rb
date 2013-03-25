@@ -14,7 +14,7 @@ class CategoriesController < CommonPageController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    @entries = @category.entries.page params[:page]
+    @entries = @category.entries.includes(:feed).page params[:page]
 
     respond_to do |format|
       format.html # show.html.erb

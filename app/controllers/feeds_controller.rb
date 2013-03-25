@@ -14,7 +14,7 @@ class FeedsController < CommonPageController
   # GET /feeds/1.json
   def show
     @feed = Feed.find(params[:id])
-    @entries = @feed.entries.page params[:page]
+    @entries = @feed.entries.includes(:feed).page params[:page]
     @category = @feed.category
 
     respond_to do |format|

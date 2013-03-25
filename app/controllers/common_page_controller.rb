@@ -4,7 +4,6 @@ class CommonPageController < ApplicationController
 
   private
   def navigate_data
-    @nav_categories = Category.all
-    @nav_feeds = Feed.all
+    @nav_categories = Category.all(:include => :feeds)
   end
 end
