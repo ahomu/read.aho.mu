@@ -50,6 +50,6 @@ Ahowatcher::Application.configure do
     #                :receiver => 'your_account@jabber.org',
     #                :show_online_status => true }
     Bullet.rails_logger = true
-    Bullet.airbrake = true
+    Bullet.airbrake = false
   end
 end
