@@ -17,6 +17,12 @@ class Tasks::FetchFeedTask
         next
       end
 
+      # Update feed meta data
+      feed.title = parsedFeed.title
+      feed.url = parsedFeed.url
+      feed.last_modified = parsedFeed.last_modified
+      feed.save
+
       # Get latest entry
       latest_entry = Entry.where(:feed_id => feed.id).order('created_at DESC').first
 
@@ -42,10 +48,6 @@ class Tasks::FetchFeedTask
         entry.save
       end
 
-      # Update feed meta data
-      feed.title = parsedFeed.title
-      feed.last_modified = parsedFeed.last_modified
-      feed.save
     end
 
   end
