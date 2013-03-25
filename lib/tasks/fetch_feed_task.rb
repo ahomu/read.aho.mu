@@ -19,8 +19,8 @@ class Tasks::FetchFeedTask
 
       # Update feed meta data
       feed.title = parsedFeed.title
-      feed.url = parsedFeed.url
       feed.last_modified = parsedFeed.last_modified
+      if parsedFeed.url then feed.url = parsedFeed.url end
       feed.save
 
       # Get latest entry
