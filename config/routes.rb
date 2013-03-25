@@ -1,4 +1,4 @@
-OwnReader::Application.routes.draw do
+Ahowatcher::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 

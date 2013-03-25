@@ -4,7 +4,7 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-OwnReader::Application.load_tasks
+Ahowatcher::Application.load_tasks
 
 desc "This task is called by the Heroku scheduler add-on"
   task :fetch_feed => :environment do
