@@ -1,7 +1,17 @@
 %header
-  %h1 read.aho.mu
+  %h1
+    %a{:href => "/"}
+      %span.ss-icon= 'rss'
+      read.aho.mu
 
-%ul
+%p.btn_show
+  %a#js_show_nav > Show subscriptions
+
+%ul#nav
   - @nav_categories.each do |category|
-    %li
-      = link_to category.name, category
+    %li.category
+      = link_to '- '+category.name, category
+      %ul
+        - category.feeds.each do |feed|
+          %li.site
+            = link_to feed.title, feed

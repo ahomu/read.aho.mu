@@ -1,14 +1,20 @@
-%table
-  %tr
-    %th Link
-    %th Summary
-    %th Published At
-
+%div#entry_tile
   - @entries.each do |entry|
-    %tr
-      %td
-        %a{:href => entry.url}= entry.title
-      %td= entry.summary
-      %td= entry.published_at
+    %div.tile
+      %div.inner{:style => 'background: url(http://api.snapito.com/desktop/7301fdd59ed49c26cda3e8c314770408a57320c7/320x240?url='+entry.url+')'}
+        = link_to content_tag(:span, entry.title), entry.url, :class => 'title js_entry_link'
+        %p.meta
+          = link_to entry.category.name, entry.category
+          |
+          = link_to entry.feed.url.gsub(/^https?:\/\/(.*?)\/?$/, '\1'), entry.feed
+
+%img.spinner#js_spinner{:src => '/loader.png', :width => "32", :height => "32"}
+
+-#%ul#entry_list
+-#  - @entries.each do |entry|
+-#    %li
+-#      = link_to content_tag(:span, 'next', :class => 'ss-icon')+entry.title, entry.url, :class => 'article'
+-#      %p.summary= entry.summary
+-#      = link_to content_tag(:span, 'action', :class => 'ss-icon')+entry.feed.url.gsub(/^https?:\/\/(.*?)\/?$/, '\1'), entry.feed.url, :class => 'site'
 
 = paginate @entries, :window => 2, :outer_window => 2
