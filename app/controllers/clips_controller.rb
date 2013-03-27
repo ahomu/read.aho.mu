@@ -6,12 +6,8 @@ class ClipsController < InheritedResources::Base
     respond_to do |format|
       if @clip.save
         format.json { render json: @clip }
-        #format.html { redirect_to @clip, notice: 'Entry was successfully clipped.' }
-        #format.json { render json: @clip, status: :created, location: @clip }
       else
         format.json { render json: @clip.errors }
-        #format.html { render action: "new" }
-        #format.json { render json: @clip.errors, status: :unprocessable_entity }
       end
     end
   end
