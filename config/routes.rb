@@ -1,11 +1,13 @@
 Ahowatcher::Application.routes.draw do
 
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :feeds
   resources :categories
+  resources :clips
 
   get "top/index"
 

@@ -7,6 +7,10 @@
           = link_to entry.category.name, entry.category
           |
           = link_to entry.feed.url.gsub(/^https?:\/\/(.*?)\/?$/, '\1'), entry.feed
+        - if entry.clip == nil
+          = link_to 'love', {:controller =>'clips',:action =>'create',:entry_id =>entry.id}, {:remote => true, :method => :post, :class => 'clip ss-icon'}
+        - else
+          = link_to 'love', 'clips/'+entry.clip.id.to_s, {:remote => true, :method => :delete, :class => 'clipped ss-icon'}
 
 %img.spinner#js_spinner{:src => '/loader.png', :width => "32", :height => "32"}
 
