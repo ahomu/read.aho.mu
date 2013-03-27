@@ -1,5 +1,5 @@
 class Entry < ActiveRecord::Base
-  belongs_to :feed
+  belongs_to :feed, :include => :category
   has_one :clip
   delegate :category, :to => :feed, :allow_nil => true
   attr_accessible :feed_id, :summary, :title, :url, :published_at
