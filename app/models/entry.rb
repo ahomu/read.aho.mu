@@ -6,5 +6,5 @@ class Entry < ActiveRecord::Base
 
   # kaminari
   default_scope :order => 'published_at DESC'
-  paginates_per 20
+  paginates_per 60
 end
