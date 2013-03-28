@@ -1,7 +1,7 @@
 %div#entry_tile
   - @entries.each do |entry|
     %div.tile
-      %div.inner{:style => 'background: url(http://api.snapito.com/desktop/7301fdd59ed49c26cda3e8c314770408a57320c7/320x240?url='+entry.url+')'}
+      %div.inner{:style => 'background: url(http://api.snapito.com/desktop/7301fdd59ed49c26cda3e8c314770408a57320c7/320x240?url='+entry.feed.url+')'}
         = link_to content_tag(:span, entry.title), entry.url, :class => 'title js_entry_link'
         %p.meta
           = link_to entry.category.name, entry.category
