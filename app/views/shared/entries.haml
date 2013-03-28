@@ -9,9 +9,9 @@
           = link_to entry.feed.url.gsub(/^https?:\/\/(.*?)\/?$/, '\1'), entry.feed
         - if is_admin
           - if entry.clip == nil
-            = link_to 'love', '/clips?entry_id='+entry.id.to_s, {:remote => true, :method => :post, :class => 'clip ss-icon'}
+            = link_to 'love', '/clips?entry_id='+entry.id.to_s, {:remote => true, :method => :post, :class => 'admin clip ss-icon'}
           - else
-            = link_to 'love', '/clips/'+entry.clip.id.to_s, {:remote => true, :method => :delete, :class => 'clipped ss-icon'}
+            = link_to 'love', '/clips/'+entry.clip.id.to_s, {:remote => true, :method => :delete, :class => 'admin clipped ss-icon'}
         - else
           - if entry.clip == nil
             = content_tag(:span, 'love', :class => 'clip ss-icon')
