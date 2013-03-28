@@ -1,5 +1,7 @@
 class ClipsController < InheritedResources::Base
 
+  before_filter :authenticate_admin_user!
+
   def create
     @clip = Clip.new({:entry_id => params[:entry_id]})
 
