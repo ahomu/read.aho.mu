@@ -198,19 +198,17 @@ a {
   }
 }
 
-.column5 {
-  .tile {
-    width: 20%;
-  }
-  .title {
-    @include font-size(3);
-  }
-  .inner {
-    height: 160px;
-  }
+.tile {
+  width: 20%;
+}
+.title {
+  @include font-size(3);
+}
+.inner {
+  height: 160px;
 }
 
-.column4 {
+@media screen and (max-width: 1280px) {
   .tile {
     width: 25%;
   }
@@ -222,7 +220,7 @@ a {
   }
 }
 
-.column3 {
+@media screen and (max-width: 1024px) {
   .tile {
     width: 33%;
   }
@@ -234,7 +232,7 @@ a {
   }
 }
 
-.column2 {
+@media screen and (max-width: 768px) {
   .tile {
     width: 50%;
   }
@@ -245,8 +243,7 @@ a {
     height: 120px;
   }
 }
-
-.column1 {
+@media screen and (max-width: 640px) {
   .tile {
     width: 100%;
   }
