@@ -14,11 +14,17 @@ class CategoriesController < CommonPageController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    @entries = @category.entries.includes([:feed, :clip]).page params[:page]
+    @feeds    = @category.feeds
+    @entries  = @category.entries.includes([:feed, :clip]).page params[:page]
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @category }
+      format.json { render :json => {
+          :category => @category,
+          :feeds    => @feeds,
+          :entries  => @entries # TODO entryごとのclipがjsonに含まれてない
+      }}
+
     end
   end
 
