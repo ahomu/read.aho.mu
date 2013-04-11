@@ -6,7 +6,9 @@ class CategoriesController < CommonPageController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @categories }
+      format.json { render :json => {
+        :categories => @categories
+      }}
     end
   end
 
@@ -20,11 +22,10 @@ class CategoriesController < CommonPageController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => {
-          :category => @category,
-          :feeds    => @feeds,
-          :entries  => @entries # TODO entryごとのclipがjsonに含まれてない
+        :category => @category,
+        :feeds    => @feeds,
+        :entries  => @entries # TODO entryごとのclipがjsonに含まれてない
       }}
-
     end
   end
 

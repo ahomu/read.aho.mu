@@ -6,7 +6,9 @@ class FeedsController < CommonPageController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @feeds }
+      format.json { render :json => {
+        :feeds => @feeds
+      }}
     end
   end
 
@@ -20,11 +22,10 @@ class FeedsController < CommonPageController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json=>{
-          :feed     => @feed,
-          :category => @category,
-          :entries  => @entries
+        :feed     => @feed,
+        :category => @category,
+        :entries  => @entries
       }}
-
     end
   end
 end
