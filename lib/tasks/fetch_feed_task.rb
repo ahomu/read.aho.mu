@@ -41,7 +41,7 @@ class Tasks::FetchFeedTask
         entry = Entry.new({
           :title        => feed_entry.title,
           :url          => feed_entry.url,
-          :summary      => (feed_entry.summary || feed_entry.content).gsub(/<.+?>/m, '').slice(0, 255),
+          :summary      => (feed_entry.summary || feed_entry.content || '').gsub(/<.+?>/m, '').slice(0, 255),
           :published_at => feed_entry.published,
           :feed_id      => feed.id
         })
