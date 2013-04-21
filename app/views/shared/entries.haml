@@ -6,7 +6,7 @@
         %p.meta
           = link_to entry.category.name, entry.category
           |
-          = link_to entry.feed.url.gsub(/^https?:\/\/(.*?)\/?$/, '\1'), entry.feed
+          = link_to entry.feed.url.gsub(/^https?:\/\/(.*?)\/?$/, '\1')[0..20] + '...', entry.feed
         - if is_admin
           - if entry.clip == nil
             = link_to 'love', '/clips?entry_id='+entry.id.to_s, {:remote => true, :method => :post, :class => 'admin clip ss-icon'}
@@ -19,12 +19,5 @@
             = content_tag(:span, 'love', :class => 'clipped ss-icon')
 
 %img.spinner#js_spinner{:src => '/loader.png', :width => "32", :height => "32"}
-
--#%ul#entry_list
--#  - @entries.each do |entry|
--#    %li
--#      = link_to content_tag(:span, 'next', :class => 'ss-icon')+entry.title, entry.url, :class => 'article'
--#      %p.summary= entry.summary
--#      = link_to content_tag(:span, 'action', :class => 'ss-icon')+entry.feed.url.gsub(/^https?:\/\/(.*?)\/?$/, '\1'), entry.feed.url, :class => 'site'
 
 = paginate @entries, :window => 2, :outer_window => 2
