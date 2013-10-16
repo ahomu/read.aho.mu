@@ -27,16 +27,19 @@ class Tasks::FetchFeedTask
       latest_entry = Entry.where(:feed_id => feed.id).order('created_at DESC').first
 
       # Take updated entries
-      if latest_entry != nil
-        updatedEntries = parsedFeed.entries.take_while {|e| e.url != latest_entry.url}
-      else
-        updatedEntries = parsedFeed.entries
-      end
+      # if latest_entry != nil
+      #   updatedEntries = parsedFeed.entries.take_while {|e| e.url != latest_entry.url}
+      # else
+      #   updatedEntries = parsedFeed.entries
+      # end
 
       # Save entries
-      updatedEntries.reverse.each do |feed_entry|
+      parsedFeed.entries.reverse.each do |feed_entry|
 
         p 'Add => ' + feed_entry.url
+
+        # destroy duplicate entry
+        Entry.destroy_all(:url => feed_entry.url)
 
         entry = Entry.new({
           :title        => feed_entry.title,
