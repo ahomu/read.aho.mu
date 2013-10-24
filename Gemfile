@@ -33,6 +33,8 @@ gem 'feedzirra'
 
 gem 'activeadmin'
 
+gem 'memcachier'
+
 #gem 'newrelic_rpm'
 
 # To use kaminari for pagination
